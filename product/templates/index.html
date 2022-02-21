@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="POST" class="post-form" action="/prod">
+        {% csrf_token %}
+    <div class="container">
+<br>
+    <div class="form-group row">
+    <label class="col-sm-1 col-form-label"></label>
+    <div class="col-sm-4">
+    <h3>Enter Details</h3>
+    </div>
+  </div>
+    <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Product Id:</label>
+    <div class="col-sm-4">
+      {{ form.errors }}
+      {{ form.pid }}
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Product Name:</label>
+    <div class="col-sm-4">
+      {{ form.pname }}
+    </div>
+  </div>
+    <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Product Description:</label>
+    <div class="col-sm-4">
+      {{ form.pdescription }}
+    </div>
+  </div>
+    <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Product Quantity:</label>
+    <div class="col-sm-4">
+      {{ form.pqty }}
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Product Price:</label>
+    <div class="col-sm-4">
+      {{ form.price }}
+    </div>
+  </div>
+    <div class="form-group row">
+    <label class="col-sm-1 col-form-label"></label>
+    <div class="col-sm-4">
+    <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </div>
+  </div>
+</form>
+{% endblock content %}

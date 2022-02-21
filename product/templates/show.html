@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<table class="table table-striped table-bordered table-sm">
+    <thead class="thead-dark">
+    <tr>
+        <th>Product ID</th>
+        <th>Product Name</th>
+        <th>Product Description</th>
+        <th>Product Quantity</th>
+        <th>Product Price</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+{% for product in products %}
+    <tr>
+        <td>{{ product.pid }}</td>
+        <td>{{ product.pname }}</td>
+        <td>{{ product.pdescription }}</td>
+        <td>{{ product.pqty }}</td>
+        <td>{{product.price}}</td>
+        <td>
+            <a href="/edit/{{ product.id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>
+            <a href="/delete/{{ product.id }}">Delete</a>
+        </td>
+    </tr>
+{% endfor %}
+    </tbody>
+</table>
+<br>
+<br>
+<center>
+    <a href="/prod" class="btn btn-primary">Add New Record</a>
+</center>
+
+<center>
+    <a href="/export_csv" class="btn btn-primary">Export data to csv</a>
+</center>
+{% endblock content %}
+
+
